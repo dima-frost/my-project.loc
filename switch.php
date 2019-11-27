@@ -20,7 +20,7 @@
     <?php
     $mark=rand(1,5);
     echo $mark;
-    ?>-
+    ?> -
     <?php
     switch ($mark) {
         case "1":
