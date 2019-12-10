@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta charset="">
     <title>String converter</title>
 </head>
 <body>
@@ -22,23 +23,19 @@
 </html>
 <?php
 $my_str = "Welcome my dear friend!";
-$str_top =  strtoupper($my_str);
-$str_low = strtolower($my_str);
-$str_ucfirst= ucfirst($my_str);
-$str_ucwords = ucwords($my_str);
-$str_invent = $str_low ^ $str_top ^$my_str;
-if($_SERVER['REQUEST_METHOD']=='POST'){
-   if ($_POST["mode"]==1 ){
-        echo $str_top;
-    }elseif ($_POST["mode"]==2){
-       echo $str_low;
-   }elseif ($_POST["mode"]==3){
-       echo $str_ucfirst;
-   }elseif ($_POST["mode"]==4){
-       echo $str_ucwords;
-   }elseif ($_POST["mode"]==5) {
-       echo $str_invent;
-   };
-
-
+function string_converter($my_string, $mode){
+    if ($mode==1){
+      echo  strtoupper($my_string);
+    }elseif ($mode==2){
+      echo  strtolower($my_string);
+    }elseif ($mode==3){
+        echo  ucfirst($my_string);
+    }elseif ($mode==4){
+        echo    ucwords($my_string);
+    }elseif ($mode==5){
+       echo  strtolower($my_string) ^ strtoupper($my_string) ^ $my_string;
+    }
+    return $my_string;
 }
+string_converter($my_str, $_POST["mode"]);
+?>
