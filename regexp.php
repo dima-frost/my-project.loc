@@ -16,7 +16,7 @@ $array = [
     'https://www.ukr.net',
 ];
 function searchDomain($my_array, $domain){
-    $pattern='/.\.' . $domain . '/';
+    $pattern='/.\.' . $domain . '$/';
     $f_array= preg_grep($pattern, $my_array);
     return $f_array;
 }
